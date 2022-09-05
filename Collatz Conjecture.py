@@ -1,6 +1,7 @@
 import logging as log
-import random
 import matplotlib.pyplot as plt
+
+print("This conjecture holds only for natural numbers (i.e. positive integers 1, 2, 3,...).\n")
 
 a = int(input("ENTER LOWER LIMIT: "))
 u = int(input("ENTER UPPER LIMIT: "))
@@ -9,6 +10,22 @@ values = []
 
 log.basicConfig(filename = "logs" , level = log.INFO)
 
+while a == u:
+    print("\nUpper Limit can't be same as Lower Limit of range.\n")
+    a = int(input("ENTER LOWER LIMIT: "))
+    u = int(input("ENTER UPPER LIMIT: "))
+    
+    
+while a < 0 or u < 0:
+    print("\nInvalid Entry. This conjecture holds only for natural numbers (i.e. positive integers 1, 2, 3,...).\nEnter Positive Limits for range\n")
+    a = int(input("ENTER LOWER LIMIT: "))
+    u = int(input("ENTER UPPER LIMIT: "))
+
+while u < a:
+    print("\nInvalid Entry. Lower Limit of the can't be greater than the Upper Limit of range. \nDid you mean, Lower limit = " + str(u) + " & Upper Limit = " + str(a) + " (range: " + str(u) + " to " + str(a) + ")" + " ?\n")
+    a = int(input("ENTER LOWER LIMIT: "))
+    u = int(input("ENTER UPPER LIMIT: "))
+    
 while a < u:
     a = a + 1
     n = a 
@@ -46,10 +63,18 @@ while a < u:
     iterations.append(i)
     values.append(a)
 
-    # x axis values
-    x = values
-    # corresponding y axis values
-    y = iterations
+log.info(iterations)
+log.info(values)
+max_iterations = max(iterations)
+max_value = values[iterations.index(max_iterations)]
+log.info(max_value)
+
+print("\n" + str(max_value) + " has the highest no. of iterations, " + str(max_iterations) + " in this range.")
+
+# x axis values
+x = values
+# corresponding y axis values
+y = iterations
       
 # plotting the points 
 plt.plot(x, y)
@@ -64,6 +89,3 @@ plt.title("Collatz Conjecture")
       
 # function to show the plot
 plt.show()
-
-log.info(iterations)
-log.info(values)
