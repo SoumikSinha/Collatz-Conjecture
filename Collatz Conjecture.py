@@ -1,4 +1,3 @@
-import logging as log
 import matplotlib.pyplot as plt
 
 print("This conjecture holds only for natural numbers (i.e. positive integers 1, 2, 3,...).\n")
@@ -7,8 +6,6 @@ a = int(input("ENTER LOWER LIMIT: "))
 u = int(input("ENTER UPPER LIMIT: "))
 iterations = []
 values = []
-
-log.basicConfig(filename = "logs" , level = log.INFO)
 
 while a == u:
     print("\nUpper Limit can't be same as Lower Limit of range.\n")
@@ -63,11 +60,8 @@ while a < u:
     iterations.append(i)
     values.append(a)
 
-log.info(iterations)
-log.info(values)
 max_iterations = max(iterations)
 max_value = values[iterations.index(max_iterations)]
-log.info(max_value)
 
 print("\n" + str(max_value) + " has the highest no. of iterations, " + str(max_iterations) + " in this range.")
 
