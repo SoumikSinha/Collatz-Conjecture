@@ -62,7 +62,10 @@ while a < u:
 
 max_iterations = max(iterations)
 max_value = values[iterations.index(max_iterations)]
+min_iterations = min(iterations)
+min_value = values[iterations.index(min_iterations)]
 
+print("\n" + str(min_value) + " has the lowest no. of iterations, " + str(min_iterations) + " in this range.")
 print("\n" + str(max_value) + " has the highest no. of iterations, " + str(max_iterations) + " in this range.")
 
 # x axis values
